@@ -44,14 +44,14 @@ public class UserMealsUtil {
             //filtering list for specific "from-to" time with cycle
             for (UserMeal userMeal1: meals) {
                 if (userMeal1.getDateTime().toLocalTime().toSecondOfDay() >= startTime.toSecondOfDay() &&
-                userMeal1.getDateTime().toLocalTime().toSecondOfDay() <= endTime.toSecondOfDay()) {
+                        userMeal1.getDateTime().toLocalTime().toSecondOfDay() <= endTime.toSecondOfDay()) {
                     userMeal.add(userMeal1);
                 }
             }
 
             //Adding filtered list to new List with excess condition
             for (UserMeal userMealL: userMeal
-                 ) {
+            ) {
                 userMealWithExcesses.add(new UserMealWithExcess(userMealL.getDateTime(), userMealL.getDescription(), userMealL.getCalories(), eachDayMeal.get(userMealL.getDateTime().toLocalDate()) > caloriesPerDay));
             }
         }
