@@ -73,10 +73,9 @@ public class UserMealsUtil {
                 eachDayMeal.put(usermeal.getDateTime().toLocalDate(), eachDayMeal.getOrDefault(usermeal.getDateTime().toLocalDate(), 0) + usermeal.getCalories());
             }
 
+
             //filtering list for specific "from-to" time
             userMeal = meals.stream().filter(c -> (c.getDateTime().toLocalTime().toSecondOfDay() >= startTime.toSecondOfDay() && c.getDateTime().toLocalTime().toSecondOfDay() <= endTime.toSecondOfDay())).collect(Collectors.toList());
-
-            //userMeal.forEach(System.out::println);
 
             //Adding filtered list to new List with excess condition
             for (UserMeal userMealL: userMeal
